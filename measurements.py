@@ -2,7 +2,11 @@ from helper import *
 
 def get_measurements(face, face_original): 
     """Takes in face landmark and original face 
-    and returns the measurements of the face."""
+    and returns raw measurements of the face.
+    Parameters:
+        face: list of landmarks
+        face_original: Original face
+    """
     face0 = face
     face0_original = face_original
     boxOD =  {
