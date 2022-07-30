@@ -1,0 +1,8 @@
+name: NatHACKS
+dependencies:
+  - python=3.9.7
+  - pip
+  - pip:
+      - opencv-python
+      - mediapipe
+      - numpy
