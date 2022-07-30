@@ -1,7 +1,7 @@
 import cv2
 import mediapipe as mp
-from scipy.misc import face
 from helper import *
+from measurements import *
 
 
 def facemesh_image(images):
@@ -49,6 +49,9 @@ def facemesh_image(images):
                     connection_drawing_spec=mp_drawing_styles
                     .get_default_face_mesh_iris_connections_style())
             cv2.imwrite('./tmp/annotated_image' + str(idx) + '.png', annotated_image)
+            face0_original = results.multi_face_landmarks[0]
+            face0 = face0_original.landmark
+            print(get_measurements(face0, face0_original))
 
 if __name__ == "__main__":
     facemesh_image(["./sample_images/example_image.jpg", "./sample_images/example_image1.jpg"])
