@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "@ionic/vue": "^6.0.0",
+    "@mediapipe/camera_utils": "^0.3.1640029074",
+    "@mediapipe/drawing_utils": "^0.3.1620248257",
+    "@mediapipe/face_detection": "^0.4.1646425229",
+    "@mediapipe/face_mesh": "^0.4.1633559619",
+    "ionic": "^5.4.16",
+    "mathjs": "^11.0.1",
+    "package-json": "^8.1.0",
+    "vue": "^3.2.21"
+  },
+  "devDependencies": {
+    "@vue/cli-service": "5.0.8"
+  },
+  "type": "module"
+}

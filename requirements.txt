@@ -1,0 +1,4 @@
+# vue
+# mediapipe
+# ionic # sudo npm
+# mathjs #npm
