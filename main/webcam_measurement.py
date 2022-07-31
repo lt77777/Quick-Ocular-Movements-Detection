@@ -101,4 +101,4 @@ def webcam_measurement(time):
   return measurement_statistics.measurement_dict
 
 if __name__ == "__main__":
-    webcam_measurement(5)
+    webcam_measurement(3)
