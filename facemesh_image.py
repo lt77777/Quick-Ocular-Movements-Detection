@@ -5,7 +5,7 @@ from measurements import *
 
 
 def facemesh_image(images):
-    """Takes a list of static image filesnames"""
+    """Takes a list of static image filesnames and returns measurement summary statitics"""
     mp_drawing = mp.solutions.drawing_utils
     mp_drawing_styles = mp.solutions.drawing_styles
     mp_face_mesh = mp.solutions.face_mesh
@@ -51,7 +51,7 @@ def facemesh_image(images):
             cv2.imwrite('./tmp/annotated_image' + str(idx) + '.png', annotated_image)
             face0_original = results.multi_face_landmarks[0]
             face0 = face0_original.landmark
-            print(get_measurements(face0, face0_original))
+            print(get_measurements(face0))
 
 if __name__ == "__main__":
     facemesh_image(["./sample_images/example_image.jpg", "./sample_images/example_image1.jpg"])

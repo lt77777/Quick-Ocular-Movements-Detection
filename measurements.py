@@ -1,14 +1,11 @@
 from helper import *
 
-def get_measurements(face, face_original): 
+def get_measurements(face0): 
     """Takes in face landmark and original face 
     and returns raw measurements of the face.
     Parameters:
-        face: list of landmarks
-        face_original: Original face
+        face: the face
     """
-    face0 = face
-    face0_original = face_original
     boxOD =  {
                 "height": distance((face0[119].x,face0[119].y), (face0[52].x,face0[52].y)),
                 "width": distance([face0[245].x,face0[245].y], [face0[35].x,face0[35].y]),
@@ -135,6 +132,10 @@ def get_measurements(face, face_original):
     morphometryResults = {
     "scaleFactor": scaleFactor,
     # calculated values
+    "cornea10Dx": corneaOD["x"],
+    "cornea10Dy": corneaOD["y"],
+    "cornea20Sx": corneaOD["x"],
+    "cornea20Sy": corneaOD["y"],
     "mrd1OD": mrd1OD/scaleFactor,
     "mrd2OD": mrd2OD/scaleFactor,
     "pfhOD": pfhOD/scaleFactor,
@@ -151,12 +152,12 @@ def get_measurements(face, face_original):
     "innerCanthal": innerCanthal/scaleFactor,
     "outerCanthal": outerCanthal/scaleFactor,
     # points
-    "faceMesh": face0_original,
-    "boxOD": boxOD,
-    "boxOS": boxOS,
-    "corneaOD": corneaOD,
-    "corneaOS": corneaOS,
-    "palpebralOD": palpebralOD,
-    "palpebralOS": palpebralOS
+    # "faceMesh": face0_original,
+    # "boxOD": boxOD,
+    # "boxOS": boxOS,
+    # "corneaOD": corneaOD,
+    # "corneaOS": corneaOS,
+    # "palpebralOD": palpebralOD,
+    # "palpebralOS": palpebralOS
     }
-    return(morphometryResults)
+    return morphometryResults

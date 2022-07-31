@@ -1,10 +1,19 @@
+import math
 import cv2
 import mediapipe as mp
 from helper import *
 from measurements import *
+from statistics import summary_statistics
 
 # For webcam input:
-def facemesh_webcam():
+def facemesh_webcam(time):
+  """Takes in amount of time and returns measurement summary statitics
+  Parameters:
+    time: amount of time in seconds to run the webcam for
+  """
+  sample_max = math.floor(time * 30)
+  measurements = dict()
+  sample_num = 0
   mp_drawing = mp.solutions.drawing_utils
   mp_drawing_styles = mp.solutions.drawing_styles
   mp_face_mesh = mp.solutions.face_mesh
@@ -57,14 +66,28 @@ def facemesh_webcam():
           
           face0_original = results.multi_face_landmarks[0]
           face0 = face0_original.landmark
-          print(get_measurements(face0, face0_original))
+          curr_measurent = get_measurements(face0)
+          # print(curr_measurent)
+          if sample_num == 0:
+             for key in curr_measurent.keys():
+              measurements[key] = [curr_measurent[key]]
+          else:
+            for key in curr_measurent.keys():
+              measurements[key].append(curr_measurent[key])
+          sample_num += 1
+          if sample_num == sample_max:
+            break
       # Flip the image horizontally for a selfie-view display.
-      cv2.imshow('MediaPipe Face Mesh', cv2.flip(image, 1))
+          cv2.imshow('MediaPipe Face Mesh', cv2.flip(image, 1))
 
 
       if cv2.waitKey(5) & 0xFF == 27:
         break
+  measurement_statistics = dict()
+  for measurement in measurements.keys():
+    measurement_statistics[measurement] = summary_statistics(measurements[measurement])
+  print(measurement_statistics)
   cap.release()
 
 if __name__ == "__main__":
-    facemesh_webcam()
+    facemesh_webcam(5)
