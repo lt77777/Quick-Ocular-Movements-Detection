@@ -4,12 +4,11 @@ import mediapipe as mp
 from helper import *
 from get_measurement import *
 from statistics import summary_statistics
-
 from measurement import MeasurementStatistics
 
-# For webcam input:
-def facemesh_webcam(time):
-  """Takes in amount of time and returns measurement summary statitics
+def webcam_measurement(time):
+  """Takes in amount of time to run webcam and returns measurement 
+  summary statitics
   Parameters:
     time: amount of time in seconds to run the webcam for
   Returns:
@@ -88,10 +87,10 @@ def facemesh_webcam(time):
             break
       # Flip the image horizontally for a selfie-view display.
           cv2.imshow('MediaPipe Face Mesh', cv2.flip(image, 1))
-
-
+          
       if cv2.waitKey(5) & 0xFF == 27:
         break
+
   measurement_statistics = dict()
   for measurement in measurements.keys():
     measurement_statistics[measurement] = summary_statistics(measurements[measurement])
@@ -102,4 +101,4 @@ def facemesh_webcam(time):
   return measurement_statistics.measurement_dict
 
 if __name__ == "__main__":
-    facemesh_webcam(5)
+    webcam_measurement(5)

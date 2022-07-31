@@ -1,9 +1,10 @@
 import cv2
 import mediapipe as mp
+import os
 from helper import *
 from get_measurement import *
 
-def facemesh_image(images):
+def image_measurement(images):
     """Takes a list of static image filesnames, saves measurements 
     to json along with returning it as a dictionary
     Parameters:
@@ -53,7 +54,9 @@ def facemesh_image(images):
                     landmark_drawing_spec=None,
                     connection_drawing_spec=mp_drawing_styles
                     .get_default_face_mesh_iris_connections_style())
-            cv2.imwrite('./tmp/annotated_image' + str(idx) + '.png', annotated_image)
+            if not os.path.exists("./results"):
+                os.mkdir("./results")
+            cv2.imwrite('./results/annotated_image' + str(idx) + '.png', annotated_image)
             face0_original = results.multi_face_landmarks[0]
             face0 = face0_original.landmark
             curr_measurement = get_measurements(face0, 'annotated_image' + str(idx))
@@ -63,4 +66,4 @@ def facemesh_image(images):
         return measurements
 
 if __name__ == "__main__":
-    facemesh_image(["./sample_images/example_image.jpg", "./sample_images/example_image1.jpg"])
+    image_measurement(["./sample_images/example_image.jpg", "./sample_images/example_image1.jpg"])

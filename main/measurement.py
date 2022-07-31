@@ -1,4 +1,5 @@
 import json
+import os
 
 
 class Measurement():
@@ -13,6 +14,8 @@ class Measurement():
     def to_json(self):
         """Convert to json"""
         measurement_json = json.dumps(self.measurement_dict)
+        if not os.path.exists("./results"):
+            os.mkdir("./results")
         with open("./results/" + ".".join([self.measurement_name, "json"]), "w") as f:
             f.write(measurement_json)
         pass
