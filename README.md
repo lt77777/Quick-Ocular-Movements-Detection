@@ -28,7 +28,7 @@ conda env update --name natHACKS --file environment.yml --prune
 
 #### Diagnosis for Cover/Uncover Test:
 
-Hypertropia: Eye twitches up
+Hypertrophia: Eye twitches up
 
 Hypotrophia: Eye twitches down
 
