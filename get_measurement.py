@@ -1,6 +1,7 @@
 from helper import *
+from measurement import Measurement
 
-def get_measurements(face0): 
+def get_measurements(face0, measurement_name="measurement"): 
     """Takes in face landmark and original face 
     and returns raw measurements of the face.
     Parameters:
@@ -131,7 +132,7 @@ def get_measurements(face0):
                             [palpebralOD["medialCanthus"]["x"], palpebralOD["medialCanthus"]["y"]])
     outerCanthal = distance([palpebralOS["lateralCanthus"]["x"], palpebralOS["lateralCanthus"]["y"]],
                             [palpebralOD["lateralCanthus"]["x"], palpebralOD["lateralCanthus"]["y"]])
-    morphometryResults = {
+    morphometryResults = Measurement({
     # "scaleFactor": scaleFactor,
     # calculated values
     "cornea10Dx": corneaOD["x"],
@@ -161,5 +162,5 @@ def get_measurements(face0):
     # "corneaOS": corneaOS,
     # "palpebralOD": palpebralOD,
     # "palpebralOS": palpebralOS
-    }
+    }, measurement_name)
     return morphometryResults

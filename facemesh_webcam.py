@@ -2,8 +2,10 @@ import math
 import cv2
 import mediapipe as mp
 from helper import *
-from measurements import *
+from get_measurement import *
 from statistics import summary_statistics
+
+from measurement import MeasurementStatistics
 
 # For webcam input:
 def facemesh_webcam(time):
@@ -73,7 +75,7 @@ def facemesh_webcam(time):
           
           face0_original = results.multi_face_landmarks[0]
           face0 = face0_original.landmark
-          curr_measurent = get_measurements(face0)
+          curr_measurent = get_measurements(face0).measurement_dict
           # print(curr_measurent)
           if sample_num == 0:
              for key in curr_measurent.keys():
@@ -95,7 +97,9 @@ def facemesh_webcam(time):
     measurement_statistics[measurement] = summary_statistics(measurements[measurement])
   # print(measurement_statistics)
   cap.release()
-  return measurement_statistics
+  measurement_statistics = MeasurementStatistics(measurement_statistics)
+  measurement_statistics.to_json()
+  return measurement_statistics.measurement_dict
 
 if __name__ == "__main__":
     facemesh_webcam(5)

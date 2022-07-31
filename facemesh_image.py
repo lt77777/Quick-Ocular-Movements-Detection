@@ -1,7 +1,7 @@
 import cv2
 import mediapipe as mp
 from helper import *
-from measurements import *
+from get_measurement import *
 
 
 def facemesh_image(images):
@@ -56,7 +56,9 @@ def facemesh_image(images):
             cv2.imwrite('./tmp/annotated_image' + str(idx) + '.png', annotated_image)
             face0_original = results.multi_face_landmarks[0]
             face0 = face0_original.landmark
-            measurements.append(get_measurements(face0))
+            curr_measurement = get_measurements(face0, 'annotated_image' + str(idx))
+            measurements.append(curr_measurement.measurement_dict)
+            curr_measurement.to_json()
             # print(get_measurements(face0))
         return measurements
 
