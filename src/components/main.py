@@ -1,6 +1,8 @@
-import os
-from main.webcam_measurement import *
+import sys
+import time
+sys.path.insert(0, "./main")
+from webcam_measurement import *
 
 webcam_measurement(3)
-os.wait(1)
+time.sleep(1)
 webcam_measurement(3)
