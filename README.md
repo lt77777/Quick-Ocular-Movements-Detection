@@ -1,5 +1,7 @@
 # NatHACKS_Submission
 
+Currently diagnosing Strabismus (eye misalignment) through the eye cover/uncover test
+
 #### Set up the conda environment
 
 You need to [install Anaconda](https://docs.anaconda.com/anaconda/install/index.html) on your system or [install Mamba](https://github.com/mamba-org/mamba) as well, and substitute `conda` with `mamba` in all following commands.
@@ -23,3 +25,12 @@ If you've already cloned and installed a previous version of the platform, you m
 ```
 conda env update --name natHACKS --file environment.yml --prune
 ```
+
+#### Diagnosis for Cover/Uncover Test:
+
+Hypertropia: Eye twitches up
+Hypotrophia: Eye twitches down
+Expotropia: Eye twitches outwards
+Esotrophia: Eye twitches inwards
+
+Tolerance: 4 mm
