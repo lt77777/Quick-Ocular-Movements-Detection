@@ -1,4 +1,24 @@
 """Diagnose summary statistics of the cover/uncover eye test"""
+import json
+import os
+
+def diagnose_to_json(before, after):
+    """
+    Diagnose the summary statistics before and after cover
+    in cover/uncover eye test and save result to json file
+    Parameters:
+        before: Dictionary of summary statistics before cover
+        after: Dictionary of summary statistics after cover
+    Returns:
+        diagnosis: String of diagnosis
+    """
+    diagnosis = diagnose(before, after)
+    diagnosis_json = json.dumps({"diagnosis": diagnosis})
+    if not os.path.exists("./results"):
+        os.mkdir("./results")
+    with open("./results/diagnosis.json", "w") as f:
+        f.write(diagnosis_json)
+    pass
 
 def diagnose(before, after):
     """
