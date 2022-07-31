@@ -30,10 +30,10 @@ conda env update --name natHACKS --file environment.yml --prune
 
 Hypertropia: Eye twitches up
 
-Hypotrophia: Eye twitches down
+Hypotropia: Eye twitches down
 
 Expotropia: Eye twitches outwards
 
-Esotrophia: Eye twitches inwards
+Esotropia: Eye twitches inwards
 
-Tolerance: 4 mm
+Tolerance: 4 mm at 95% confidence t-test
