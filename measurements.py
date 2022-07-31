@@ -130,7 +130,7 @@ def get_measurements(face0):
     outerCanthal = distance([palpebralOS["lateralCanthus"]["x"], palpebralOS["lateralCanthus"]["y"]],
                             [palpebralOD["lateralCanthus"]["x"], palpebralOD["lateralCanthus"]["y"]])
     morphometryResults = {
-    "scaleFactor": scaleFactor,
+    # "scaleFactor": scaleFactor,
     # calculated values
     "cornea10Dx": corneaOD["x"],
     "cornea10Dy": corneaOD["y"],
