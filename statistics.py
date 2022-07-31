@@ -1,7 +1,14 @@
 import numpy as np
 
 def summary_statistics(measurements):
-    """Takes a list of measurements and returns measurement summary statistics"""
+    """Takes a list of measurements and returns measurement summary statistics
+    Parameters:
+        measurements: list of values
+    Returns:
+        summary_statistics: dictionary of summary statistics
+            - key: statistic name (e.g. "mean")
+            - value: statistic value
+    """
     try:
         summary_statistics = {
             "mean": np.mean(measurements),

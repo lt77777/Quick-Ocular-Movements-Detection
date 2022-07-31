@@ -7,7 +7,7 @@ def get_measurements(face0, measurement_name="measurement"):
     Parameters:
         face: the face
     Returns:
-        measurements: dictionary of measurements
+        measurements: Measurement object
     """
     boxOD =  {
                 "height": distance((face0[119].x,face0[119].y), (face0[52].x,face0[52].y)),

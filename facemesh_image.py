@@ -3,9 +3,9 @@ import mediapipe as mp
 from helper import *
 from get_measurement import *
 
-
 def facemesh_image(images):
-    """Takes a list of static image filesnames and returns measurements
+    """Takes a list of static image filesnames, saves measurements 
+    to json along with returning it as a dictionary
     Parameters:
         images: list of image filenames
     Returns:
