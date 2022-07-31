@@ -1,0 +1,22 @@
+{
+  "name": "nathacks",
+  "version": "7.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lt77777/NatHACKS_Submission.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/lt77777/NatHACKS_Submission/issues"
+  },
+  "homepage": "https://github.com/lt77777/NatHACKS_Submission#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
