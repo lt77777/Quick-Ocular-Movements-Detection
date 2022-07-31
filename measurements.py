@@ -5,6 +5,8 @@ def get_measurements(face0):
     and returns raw measurements of the face.
     Parameters:
         face: the face
+    Returns:
+        measurements: dictionary of measurements
     """
     boxOD =  {
                 "height": distance((face0[119].x,face0[119].y), (face0[52].x,face0[52].y)),

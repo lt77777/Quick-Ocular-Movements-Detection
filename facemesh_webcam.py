@@ -10,6 +10,13 @@ def facemesh_webcam(time):
   """Takes in amount of time and returns measurement summary statitics
   Parameters:
     time: amount of time in seconds to run the webcam for
+  Returns:
+    summary_statistics: dictionary of dictionaries of 
+      measurement summary statistics
+      - key: measurement name (e.g. "cornea10Dx")
+      - value: dictionary of measurement summary statistics
+        - key: summary statistic name (mean, std, min, max, median, range)
+        - value: summary statistic value
   """
   sample_max = math.floor(time * 30)
   measurements = dict()
@@ -17,7 +24,7 @@ def facemesh_webcam(time):
   mp_drawing = mp.solutions.drawing_utils
   mp_drawing_styles = mp.solutions.drawing_styles
   mp_face_mesh = mp.solutions.face_mesh
-  drawing_spec = mp_drawing.DrawingSpec(thickness=1, circle_radius=1)
+  # drawing_spec = mp_drawing.DrawingSpec(thickness=1, circle_radius=1)
   cap = cv2.VideoCapture(0)
   with mp_face_mesh.FaceMesh(
       max_num_faces=1,
@@ -86,8 +93,9 @@ def facemesh_webcam(time):
   measurement_statistics = dict()
   for measurement in measurements.keys():
     measurement_statistics[measurement] = summary_statistics(measurements[measurement])
-  print(measurement_statistics)
+  # print(measurement_statistics)
   cap.release()
+  return measurement_statistics
 
 if __name__ == "__main__":
     facemesh_webcam(5)

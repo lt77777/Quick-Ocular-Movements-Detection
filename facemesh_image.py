@@ -5,12 +5,17 @@ from measurements import *
 
 
 def facemesh_image(images):
-    """Takes a list of static image filesnames and returns measurement summary statitics"""
+    """Takes a list of static image filesnames and returns measurements
+    Parameters:
+        images: list of image filenames
+    Returns:
+        measurements: list of dictionaries of measurements
+    """
     mp_drawing = mp.solutions.drawing_utils
     mp_drawing_styles = mp.solutions.drawing_styles
     mp_face_mesh = mp.solutions.face_mesh
     drawing_spec = mp_drawing.DrawingSpec(thickness=1, circle_radius=1)
-    
+    measurements = []
     with mp_face_mesh.FaceMesh(
         static_image_mode=True,
         max_num_faces=1,
@@ -51,7 +56,9 @@ def facemesh_image(images):
             cv2.imwrite('./tmp/annotated_image' + str(idx) + '.png', annotated_image)
             face0_original = results.multi_face_landmarks[0]
             face0 = face0_original.landmark
-            print(get_measurements(face0))
+            measurements.append(get_measurements(face0))
+            # print(get_measurements(face0))
+        return measurements
 
 if __name__ == "__main__":
     facemesh_image(["./sample_images/example_image.jpg", "./sample_images/example_image1.jpg"])

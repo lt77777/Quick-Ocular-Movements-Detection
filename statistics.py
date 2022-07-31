@@ -1,7 +1,7 @@
 import numpy as np
 
 def summary_statistics(measurements):
-    """Takes a list of measurements and returns measurement summary statitics"""
+    """Takes a list of measurements and returns measurement summary statistics"""
     try:
         summary_statistics = {
             "mean": np.mean(measurements),
