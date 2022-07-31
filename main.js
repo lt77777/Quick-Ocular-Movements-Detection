@@ -1,27 +1,25 @@
-// Vivaldi JS Example
-
-// When a Season Button is Clicked
-document.getElementById('summerBtn').addEventListener('click', setSummer);
-
-//Event Functions
-function setSummer(){
-    // - change concerto text
-    document.getElementById('season-text').innerHTML='Summer';
-    
-    // - change main image
-    document.getElementById('main-image').src='images/summer.jpg';
-    
-    // - change page background color
-    document.body.style.backgroundColor='#1BA848';
-
-    // - change audio source
-    document.getElementById('song').src='songs/vivaldi-summer.mp3';
-
-    // - update active border on buttons
-    document.getElementById('springBtn').classList.remove('activeBtn');
-    document.getElementById('autumnBtn').classList.remove('activeBtn');
-    document.getElementById('winterBtn').classList.remove('activeBtn');
-
-    document.getElementById('summerBtn').classList.add('activeBtn');
-
-}
+main.js
+const express = require('express')
+const {spawn} = require('child_process');
+const app = express()
+const port = 3000
+app.get('/', (req, res) => {
+ 
+ var dataToSend;
+ // spawn new child process to call the python script
+ const python = spawn('python', ['facemesh.py']);
+ // collect data from script
+ python.stdout.on('data', function (data) {
+  console.log('Pipe data from python script ...');
+  dataToSend = data.toString();
+ });
+ // in close event we are sure that stream from child process is closed
+ python.on('close', (code) => {
+ console.log(`child process close all stdio with code ${code}`);
+ // send data to browser
+ res.send(dataToSend)
+ });
+ 
+})
+app.listen(port, () => console.log(`Example app listening on port 
+${port}!`))
