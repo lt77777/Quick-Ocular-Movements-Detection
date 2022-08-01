@@ -8,6 +8,7 @@ The website design is created through React which connects to the Python back-en
 the corresponding CSS and HTML styling.
 
 Backend impementation and Full Stack Integrations by Lawrence Tsai
+Frontend by Yun Cao
 
 #### Set up the conda environment
 
