@@ -1,13 +1,17 @@
-# NatHACKS_Submission
+# Quick Ocular Movements Detection
 
 #### Written Summary:
 
-Quick Ocular Movements (QOM) is a python based web-application which tracks and processes eye position and movement to help patients diagnose potential eye conditions. The website essentially has two part photo and video functionality. Both methods allow for a quick real-time calculation of the specific coordinates of their eye structure and eye movement, through which the application will determine potential eye conditions such as: hypotropia, hypertropia, etc. The User is able to access our Javascript frontend design and is given prompts to cover/uncover each eye and result’s json files from the backend are displayed. An environment was created for the backend that installs the dependencies and packages (OpenCV, Mediapipe, Numpy) that can be activated through conda. The main script that is found in the frontend directory calls the backend webcam measurement script that utilizes OpenCV for video capture and MediaPipe for meshing the face and detecting the eyes. The real-time data are in a NormalizedLandmark object which is extracted through the get_measurement helper script into Measurment objects. The measurement object has an hash map attribute which can be collated at 30 per second. All the samples are run through the statistics script that returns it’s sumary statistics as the Measurement’s child class MeasurementStatistics. This is then run through the diagnosis script which uses Cauchy Schwartz Variance for the differences in positions to at 95% confidence if there is a deviation corresponding to each eye condition. 
+Quick Ocular Movements (QOM) is a python based web-application which tracks and processes eye position and movement to help patients diagnose potential eye conditions. The website essentially has two part photo and video functionality. Both methods allow for a quick real-time calculation of the specific coordinates of their eye structure and eye movement, through which the application will determine potential eye conditions such as: hypotropia, hypertropia, etc. The User is able to access our Javascript frontend design and is given prompts to cover/uncover each eye and result’s json files from the backend are displayed. An environment was created for the backend that installs the dependencies and packages (OpenCV, Mediapipe, Numpy) that can be activated through conda. The main script that is found in the frontend directory calls the backend webcam measurement script that utilizes OpenCV for video capture and MediaPipe for meshing the face and detecting the eyes. The real-time data are in a NormalizedLandmark object which is extracted through the get_measurement helper script into Measurment objects. The measurement object has a hash map attribute which can be collated at 30 per second. All the samples are run through the statistics script that returns it’s sumary statistics as the Measurement’s child class MeasurementStatistics. This is then run through the diagnosis script which uses Cauchy Schwartz Variance for the differences in positions to at 95% confidence if there is a deviation corresponding to each eye condition. 
 
 The website design is created through React which connects to the Python back-end through Node.js, and the aesthetics were created based on wireframes in Figma, and 
 the corresponding CSS and HTML styling.
 
-Backend impementation and Full Stack Integrations by Lawrence Tsai
+
+
+Backend implementation and Full Stack Integrations by Lawrence Tsai
+
+Frontend by Yun Cao
 
 #### Set up the conda environment
 
