@@ -9,7 +9,7 @@ the corresponding CSS and HTML styling.
 
 
 
-Backend impementation and Full Stack Integrations by Lawrence Tsai
+Backend implementation and Full Stack Integrations by Lawrence Tsai
 
 Frontend by Yun Cao
 
