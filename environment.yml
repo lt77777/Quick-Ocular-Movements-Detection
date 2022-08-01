@@ -1,4 +1,4 @@
-name: NatHACKS
+name: QOM
 dependencies:
   - python=3.9.7
   - pip

@@ -28,13 +28,13 @@ conda env create --file environment.yml
 After, you can activate the new environment with:
 
 ```
-conda activate NatHACKS
+conda activate QOM
 ```
 
 If you've already cloned and installed a previous version of the platform, you may need to update the conda environment. To update the conda environment with any new depedencies, do:
 
 ```
-conda env update --name natHACKS --file environment.yml --prune
+conda env update --name QOM --file environment.yml --prune
 ```
 
 
