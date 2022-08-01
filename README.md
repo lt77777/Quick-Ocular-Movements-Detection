@@ -7,6 +7,8 @@ Quick Ocular Movements (QOM) is a python based web-application which tracks and 
 The website design is created through React which connects to the Python back-end through Node.js, and the aesthetics were created based on wireframes in Figma, and 
 the corresponding CSS and HTML styling.
 
+
+
 Backend impementation and Full Stack Integrations by Lawrence Tsai
 
 Frontend by Yun Cao
