@@ -1,0 +1,61 @@
+.App{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 10%;
+    box-sizing: border-box;
+}
+.header_container {
+    display: flex;
+    padding: 1rem 5%;
+    background-color: white;
+    filter: drop-shadow(0px 2px 6px rgba(104, 104, 104, 0.25));
+}
+.text_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.home_title {
+    color:#1A1A1A;
+}
+.home_text {
+    color: #333540;
+    max-width: 70%;
+}
+.home_img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+/** Home */
+.primary_btn {
+    color: white;
+    background: #3EA2FF;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 10px 2rem;
+    margin: auto;
+    width: fit-content;
+}
+
+.primary_btn:hover{
+    background: 
+    #105EA5;
+
+}

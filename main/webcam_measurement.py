@@ -1,10 +1,12 @@
 import math
 import cv2
+import os
 import mediapipe as mp
 from helper import *
 from get_measurement import *
 from statistics import summary_statistics
 from measurement import MeasurementStatistics
+from diagnosis import *
 
 def webcam_measurement(time):
   """Takes in amount of time to run webcam and returns measurement 
@@ -96,8 +98,13 @@ def webcam_measurement(time):
     measurement_statistics[measurement] = summary_statistics(measurements[measurement])
   # print(measurement_statistics)
   cap.release()
-  measurement_statistics = MeasurementStatistics(measurement_statistics)
-  measurement_statistics.to_json()
+  if not os.path.exists("./results/before.json"):
+    measurement_statistics = MeasurementStatistics(measurement_statistics, "before")
+    measurement_statistics.to_json()
+  else:
+    measurement_statistics = MeasurementStatistics(measurement_statistics, "after")
+    measurement_statistics.to_json()
+    diagnose_to_json("results/before.json", "results/after.json")
   return measurement_statistics.measurement_dict
 
 if __name__ == "__main__":
