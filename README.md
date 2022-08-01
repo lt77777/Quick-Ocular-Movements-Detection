@@ -37,11 +37,15 @@ If you've already cloned and installed a previous version of the platform, you m
 conda env update --name natHACKS --file environment.yml --prune
 ```
 
-### `npm install`
 
-### `npm start`
+#### To run the webapp in the development mode
 
-Runs the app in the development mode.
+```
+npm install
+```
+```
+npm start
+```
 
 #### Diagnosis for Cover/Uncover Test:
 
