@@ -42,7 +42,7 @@ conda env update --name QOM --file environment.yml --prune
 ```
 
 
-#### To run the webapp in the development mode
+#### To run the webapp in development mode
 
 ```
 npm install
