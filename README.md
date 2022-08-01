@@ -1,4 +1,4 @@
-# NatHACKS_Submission
+# Quick Ocular Movements Detection
 
 #### Written Summary:
 
